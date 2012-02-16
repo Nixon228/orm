@@ -1242,7 +1242,10 @@ class Model implements \ArrayAccess, \Iterator
 			{
 				if ( ! isset($this->_original[$p]) or $this->{$p} !== $this->_original[$p])
 				{
-					return true;
+					if( ! is_null($this->_original[$p]))
+					{
+						return true;
+					}
 				}
 			}
 			elseif (isset($relations[$p]))
